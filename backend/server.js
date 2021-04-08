@@ -1,5 +1,6 @@
 const PORT = 3000;
 const express = require("express");
+const pdf = require("./modules/generate-pdf");
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,7 @@ app.get("/", (req, res) => {
 
 app.post("/generate-pdf", (req, res) => {
   res.send({ endpoint: "/generate-pdf POST", ...req.body });
+  // pdf(req.body);
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
