@@ -1,5 +1,4 @@
 const sgMail = require("@sendgrid/mail");
-const dotenv = require("dotenv");
 
 function getEmailHandler(api_key) {
   sgMail.setApiKey(api_key);
