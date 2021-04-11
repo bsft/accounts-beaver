@@ -8,7 +8,7 @@ function generatePDF(invoice, path) {
 
   generateHeader(doc, invoice);
   generateCustomerInfo(doc, invoice);
-  // generateInvoiceTable(doc, invoice);
+  generateInvoiceTable(doc, invoice);
   generateFooter(doc, invoice);
   doc.end();
 
@@ -69,6 +69,71 @@ function generateCustomerInfo(doc, invoice) {
   generateHomeRow(doc, 267);
 
 }
+
+function generateInvoiceTable(doc, invoice) {
+  let i;
+  const tableTop = 345; //represents the top of the invoice table
+
+  doc.font("Helvetica-Bold");
+  generateTableRow(
+    doc,
+    tableTop,
+    "Item Description",
+    "Unit Cost",
+    "Quantity",
+    "Line Total"
+  );
+  generateHomeRow(doc, tableTop + 20);
+  doc.font("Helvetica");
+
+  for (i = 0; i < invoice.items.length; i++) {
+    const item = invoice.items[i];
+    const position = tableTop + (i + 1) * 30;
+    generateTableRow(
+      doc,
+      position,
+      item.item_description,
+      formatCurrency(item.amount / item.quantity),
+      item.quantity,
+      formatCurrency(item.amount)
+    );
+
+    generateHomeRow(doc, position + 20);
+  }
+
+  const subtotalPosition = tableTop + (i + 1) * 30;
+  generateTableRow(
+    doc,
+    subtotalPosition,
+    "",
+    "",
+    "Subtotal",
+    formatCurrency(invoice.subtotal)
+  );
+
+  const paidToDatePosition = subtotalPosition + 20;
+  generateTableRow(
+    doc,
+    paidToDatePosition,
+    "",
+    "",
+    "Paid To Date",
+    formatCurrency(invoice.amount_paid)
+  );
+
+  const duePosition = paidToDatePosition + 25;
+  doc.font("Helvetica-Bold");
+  generateTableRow(
+    doc,
+    duePosition,
+    "",
+    "",
+    "Balance Due",
+    formatCurrency(invoice.subtotal - invoice.amount_paid)
+  );
+  doc.font("Helvetica");
+}
+
 
 
 function generateHomeRow(doc, y_pos) {
