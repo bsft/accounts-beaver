@@ -2,6 +2,7 @@ const PORT = 3000;
 const express = require("express");
 const Busboy = require("busboy");
 const dotenv = require("dotenv");
+const fs = require("fs");
 const pdf = require("./modules/generate-pdf");
 const email = require("./modules/send-email");
 
@@ -24,7 +25,21 @@ app.post("/generate-pdf", (req, res) => {
     console.log(body);
     const invoice = pdf.generateInvoiceFromRequestObject(body);
     pdf.generatePDF(invoice, "invoice.pdf");
-    // emailHandler.send(recipients, subject, text, html, attachments);
+    attachment = fs.readFileSync(`${__dirname}/invoice.pdf`).toString("base64");
+    emailHandler.send({
+      recipients: body["recipient-email"],
+      subject: `Invoice #${body["invoice-num"]}`,
+      text: `${body["recipient-name"]}\n, ${body["sender-name"]} has sent you an invoice, attached below.`,
+      html: `<p>${body["recipient-name"]},</p> <p>${body["sender-name"]} has sent you an invoice, attached below.</p>`,
+      attachments: [
+        {
+          content: attachment,
+          filename: "invoice.pdf",
+          type: "application/pdf",
+          disposition: "attachment",
+        },
+      ],
+    });
     res.send({ endpoint: "/generate-pdf POST", body });
   });
   req.pipe(busboy);
