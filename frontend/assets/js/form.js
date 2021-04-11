@@ -13,7 +13,7 @@ function addItem() {
   quantityLabel.setAttribute("for", `item${itemIndex}-quantity`);
   quantityLabel.innerText = `Item ${itemIndex} Quantity`;
   const quantityInput = document.createElement("input");
-  quantityInput.setAttribute("type", "number");
+  quantityInput.setAttribute("type", "text");
   quantityInput.setAttribute("name", `item${itemIndex}-quantity`);
   quantityInput.setAttribute("id", `item${itemIndex}-quantity`);
 
@@ -21,7 +21,7 @@ function addItem() {
   amountLabel.setAttribute("for", `item${itemIndex}-amount`);
   amountLabel.innerText = `Item ${itemIndex} Unit Price`;
   const amountInput = document.createElement("input");
-  amountInput.setAttribute("type", "number");
+  amountInput.setAttribute("type", "text");
   amountInput.setAttribute("name", `item${itemIndex}-amount`);
   amountInput.setAttribute("id", `item${itemIndex}-amount`);
 
