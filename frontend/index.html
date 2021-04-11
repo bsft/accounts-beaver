@@ -10,6 +10,7 @@
   </head>
   <body>
     <form action="http://localhost:3000/generate-pdf" method="POST">
+      <!-- Recipient Information -->
       <label for="recipient-name">Recipient Name</label>
       <input type="text" name="recipient-name" id="recipient-name" />
       <label for="recipient-address">Recipient Address</label>
@@ -24,6 +25,8 @@
       <input type="number" name="recipient-zip" id="recipient-zip" />
       <label for="recipient-email">Recipient Email</label>
       <input type="text" name="recipient-email" id="recipient-email" />
+
+      <!-- Sender Information -->
       <label for="sender-name">Sender Name</label>
       <input type="text" name="sender-name" id="sender-name" />
       <label for="sender-address">Sender Address</label>
@@ -38,18 +41,21 @@
       <input type="number" name="sender-zip" id="sender-zip" />
       <label for="sender-email">Sender Email</label>
       <input type="text" name="sender-email" id="sender-email" />
-      <label for="item1-description">Item1 Description</label>
-      <input type="text" name="item1-description" id="item1-description" />
-      <label for="item1-quantity">Item1 Quantity</label>
-      <input type="number" name="item1-quantity" id="item1-quantity" />
-      <label for="item1-amount">Item1 Amount</label>
-      <input type="number" name="item1-amount" id="item1-amount" />
-      <label for="item2-description">Item2 Description</label>
-      <input type="text" name="item2-description" id="item2-description" />
-      <label for="item2-quantity">Item2 Quantity</label>
-      <input type="number" name="item2-quantity" id="item2-quantity" />
-      <label for="item2-amount">Item2 Amount</label>
-      <input type="number" name="item2-amount" id="item2-amount" />
+
+      <!-- Items Information-->
+      <div id="items-container">
+        <div id="item1">
+          <label for="item1-description">Item 1 Description</label>
+          <input type="text" name="item1-description" id="item1-description" />
+          <label for="item1-quantity">Item 1 Quantity</label>
+          <input type="number" name="item1-quantity" id="item1-quantity" />
+          <label for="item1-amount">Item 1 Unit Price</label>
+          <input type="number" name="item1-amount" id="item1-amount" />
+        </div>
+      </div>
+      <button id="add-item-btn">Add item</button>
+
+      <!-- etc -->
       <label for="due-date">Due Date</label>
       <input type="text" name="due-date" id="due-date" />
       <label for="invoice-num">Invoice Num</label>

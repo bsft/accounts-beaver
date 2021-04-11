@@ -4,3 +4,10 @@ form {
   justify-content: space-evenly;
   align-items: center;
 }
+
+[id^="item"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
