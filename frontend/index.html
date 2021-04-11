@@ -8,11 +8,64 @@
     <meta name="author" content="BeaverSoft" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-
   <body>
-    <!-- Boilerplate: replace this with production code -->
-    <div id="content">HTML boilerplate</div>
-    <!-- End boilerplate -->
+    <form action="http://localhost:3000/generate-pdf" method="POST">
+      <label for="recipient-name">Recipient Name</label>
+      <input type="text" name="recipient-name" id="recipient-name" />
+      <label for="recipient-address">Recipient Address</label>
+      <input type="text" name="recipient-address" id="recipient-address" />
+      <label for="recipient-city">Recipient City</label>
+      <input type="text" name="recipient-city" id="recipient-city" />
+      <label for="recipient-state">Recipient State</label>
+      <input type="text" name="recipient-state" id="recipient-state" />
+      <label for="recipient-country">Recipient Country</label>
+      <input type="text" name="recipient-country" id="recipient-country" />
+      <label for="recipient-zip">Recipient Zip</label>
+      <input type="number" name="recipient-zip" id="recipient-zip" />
+      <label for="recipient-email">Recipient Email</label>
+      <input type="text" name="recipient-email" id="recipient-email" />
+      <label for="sender-name">Sender Name</label>
+      <input type="text" name="sender-name" id="sender-name" />
+      <label for="sender-address">Sender Address</label>
+      <input type="text" name="sender-address" id="sender-address" />
+      <label for="sender-city">Sender City</label>
+      <input type="text" name="sender-city" id="sender-city" />
+      <label for="sender-state">Sender State</label>
+      <input type="text" name="sender-state" id="sender-state" />
+      <label for="sender-country">Sender Country</label>
+      <input type="text" name="sender-country" id="sender-country" />
+      <label for="sender-zip">Sender Zip</label>
+      <input type="number" name="sender-zip" id="sender-zip" />
+      <label for="sender-email">Sender Email</label>
+      <input type="text" name="sender-email" id="sender-email" />
+      <label for="item1-description">Item1 Description</label>
+      <input type="text" name="item1-description" id="item1-description" />
+      <label for="item1-quantity">Item1 Quantity</label>
+      <input type="number" name="item1-quantity" id="item1-quantity" />
+      <label for="item1-amount">Item1 Amount</label>
+      <input type="number" name="item1-amount" id="item1-amount" />
+      <label for="item2-description">Item2 Description</label>
+      <input type="text" name="item2-description" id="item2-description" />
+      <label for="item2-quantity">Item2 Quantity</label>
+      <input type="number" name="item2-quantity" id="item2-quantity" />
+      <label for="item2-amount">Item2 Amount</label>
+      <input type="number" name="item2-amount" id="item2-amount" />
+      <label for="due-date">Due Date</label>
+      <input type="text" name="due-date" id="due-date" />
+      <label for="invoice-num">Invoice Num</label>
+      <input type="text" name="invoice-num" id="invoice-num" />
+      <label for="shipping-costs">Shipping Costs</label>
+      <input type="text" name="shipping-costs" id="shipping-costs" />
+      <label for="notes">Notes</label>
+      <input type="textarea" name="notes" id="notes"></textarea>
+      <label for="amount-paid">Amount Paid</label>
+      <input type="text" name="amount-paid" id="amount-paid" />
+      <label for="terms">Terms</label>
+      <input type="text" name="terms" id="terms" />
+      <label for="tax">Tax</label>
+      <input type="number" name="tax" id="tax" />
+      <input type="submit" label="submit" />
+    </form>
   </body>
   <script src="js/scripts.js"></script>
 </html>
