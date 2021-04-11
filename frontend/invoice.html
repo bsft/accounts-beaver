@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Accounts Beaver</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/core.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <span class="logo"><img src="images/logo.svg" alt="" /></span>
+        <h1>Send an invoice</h1>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <!-- <ul>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#first">First Section</a></li>
+							<li><a href="#second">Second Section</a></li>
+							<li><a href="#cta">Get Started</a></li>
+						</ul> -->
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Introduction -->
+        <section id="intro" class="main">
+          <form action="http://localhost:3000/generate-pdf" method="POST">
+            <!-- Recipient Information -->
+            <h2>Recipient Information</h2>
+            <label for="recipient-name">Recipient Name</label>
+            <input type="text" name="recipient-name" id="recipient-name" />
+            <label for="recipient-address">Recipient Address</label>
+            <input
+              type="text"
+              name="recipient-address"
+              id="recipient-address"
+            />
+            <label for="recipient-city">Recipient City</label>
+            <input type="text" name="recipient-city" id="recipient-city" />
+            <label for="recipient-state">Recipient State</label>
+            <input type="text" name="recipient-state" id="recipient-state" />
+            <label for="recipient-country">Recipient Country</label>
+            <input
+              type="text"
+              name="recipient-country"
+              id="recipient-country"
+            />
+            <label for="recipient-zip">Recipient Zip</label>
+            <input type="text" name="recipient-zip" id="recipient-zip" />
+            <label for="recipient-email">Recipient Email</label>
+            <input type="text" name="recipient-email" id="recipient-email" />
+
+            <!-- Sender Information -->
+            <h2>Sender Information</h2>
+            <label for="sender-name">Sender Name</label>
+            <input type="text" name="sender-name" id="sender-name" />
+            <label for="sender-address">Sender Address</label>
+            <input type="text" name="sender-address" id="sender-address" />
+            <label for="sender-city">Sender City</label>
+            <input type="text" name="sender-city" id="sender-city" />
+            <label for="sender-state">Sender State</label>
+            <input type="text" name="sender-state" id="sender-state" />
+            <label for="sender-country">Sender Country</label>
+            <input type="text" name="sender-country" id="sender-country" />
+            <label for="sender-zip">Sender Zip</label>
+            <input type="text" name="sender-zip" id="sender-zip" />
+            <label for="sender-email">Sender Email</label>
+            <input type="text" name="sender-email" id="sender-email" />
+
+            <!-- etc -->
+            <h2>Payment Information</h2>
+            <label for="due-date">Due Date</label>
+            <input type="text" name="due-date" id="due-date" />
+            <label for="invoice-num">Invoice Num</label>
+            <input type="text" name="invoice-num" id="invoice-num" />
+            <label for="shipping-costs">Shipping Costs</label>
+            <input type="text" name="shipping-costs" id="shipping-costs" />
+            <label for="notes">Notes</label>
+            <input type="text" name="notes" id="notes" />
+            <label for="amount-paid">Amount Paid</label>
+            <input type="text" name="amount-paid" id="amount-paid" />
+            <label for="terms">Terms</label>
+            <input type="text" name="terms" id="terms" />
+            <label for="tax">Tax</label>
+            <input type="text" name="tax" id="tax" />
+
+            <!-- Items Information-->
+            <h2>Item Information</h2>
+            <div id="items-container">
+              <div id="item1">
+                <label for="item1-description">Item 1 Description</label>
+                <input
+                  type="text"
+                  name="item1-description"
+                  id="item1-description"
+                />
+                <label for="item1-quantity">Item 1 Quantity</label>
+                <input type="text" name="item1-quantity" id="item1-quantity" />
+                <label for="item1-amount">Item 1 Unit Price</label>
+                <input type="text" name="item1-amount" id="item1-amount" />
+              </div>
+            </div>
+            <div class="add-item-container">
+              <button id="add-item-btn" class="button">Add item</button>
+            </div>
+
+            <footer class="major">
+              <ul class="actions special">
+                <li>
+                  <input type="submit" label="submit" class="button primary" />
+                </li>
+              </ul>
+            </footer>
+          </form>
+        </section>
+
+        <!-- Get Started -->
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <!-- <section>
+          <h2>Aliquam sed mauris</h2>
+          <p>
+            Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat
+            magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris.
+            Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas
+            velit, vitae tincidunt odio.
+          </p>
+          <ul class="actions">
+            <li><a href="generic.html" class="button">Learn More</a></li>
+          </ul>
+        </section> -->
+        <section>
+          <h2>Contact us</h2>
+          <dl class="alt">
+            <dt>BeaverSoft</dt>
+            <dd>&nbsp;</dd>
+            <dt>Address</dt>
+            <dd>
+              1500 SW Jefferson Way &bull; Corvallis, OR 97331 &bull; United
+              States
+            </dd>
+            <dt>Email</dt>
+            <dd>coucoulr@oregonstate.edu &bull; deathera@oregonstate.edu</dd>
+          </dl>
+        <!-- <section>
+          <h2>Etiam feugiat</h2>
+          <dl class="alt">
+            <dt>Address</dt>
+            <dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+            <dt>Phone</dt>
+            <dd>(000) 000-0000 x 0000</dd>
+            <dt>Email</dt>
+            <dd><a href="#">information@untitled.tld</a></dd> -->
+          </dl>
+          <ul class="icons">
+            <!-- <li>
+              <a href="#" class="icon brands fa-twitter alt"
+                ><span class="label">Twitter</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="icon brands fa-facebook-f alt"
+                ><span class="label">Facebook</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="icon brands fa-instagram alt"
+                ><span class="label">Instagram</span></a
+              >
+            </li> -->
+            <li>
+              <a href="https://github.com/bsft/accounts-beaver" class="icon brands fa-github alt"
+                ><span class="label">GitHub</span></a
+              >
+            </li>
+            <!-- <li>
+              <a href="#" class="icon brands fa-dribbble alt"
+                ><span class="label">Dribbble</span></a
+              >
+            </li> -->
+          </ul>
+        </section>
+        <p class="copyright">
+          &copy; BeaverSoft 2021. Design: <a href="https://html5up.net">HTML5 UP</a>.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form.js"></script>
+  </body>
+</html>

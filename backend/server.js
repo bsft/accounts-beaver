@@ -21,25 +21,28 @@ app.post("/generate-pdf", (req, res) => {
   busboy.on("field", function (fieldname, val) {
     body[fieldname] = val;
   });
-  busboy.on("finish", function () {
-    console.log(body);
-    const invoice = pdf.generateInvoiceFromRequestObject(body);
-    pdf.generatePDF(invoice, "invoice.pdf");
-    attachment = fs.readFileSync(`${__dirname}/invoice.pdf`).toString("base64");
-    emailHandler.send({
-      recipients: body["recipient-email"],
-      subject: `Invoice #${body["invoice-num"]}`,
-      text: `${body["recipient-name"]}\n, ${body["sender-name"]} has sent you an invoice, attached below.`,
-      html: `<p>${body["recipient-name"]},</p> <p>${body["sender-name"]} has sent you an invoice, attached below.</p>`,
-      attachments: [
-        {
-          content: attachment,
-          filename: "invoice.pdf",
-          type: "application/pdf",
-          disposition: "attachment",
-        },
-      ],
-    });
+  busboy.on("finish", async function () {
+    // console.log(body);
+    try {
+      const invoice = pdf.generateInvoiceFromRequestObject(body);
+      await pdf.generatePDF(invoice, "invoice.pdf");
+      const attachment = fs
+        .readFileSync(`${__dirname}/invoice.pdf`)
+        .toString("base64");
+      emailHandler.send({
+        recipients: body["recipient-email"],
+        subject: `Invoice #${body["invoice-num"]}`,
+        text: `${body["recipient-name"]}\n, ${body["sender-name"]} has sent you an invoice, attached below.`,
+        html: `<p>${body["recipient-name"]},</p> <p>${body["sender-name"]} has sent you an invoice, attached below.</p>`,
+        attachments: [
+          {
+            content: attachment,
+            filename: "invoice.pdf",
+            type: "application/pdf",
+            disposition: "attachment",
+          },
+        ],
+      });
     res.send({ endpoint: "/generate-pdf POST", body });
   });
   req.pipe(busboy);

@@ -108,15 +108,40 @@ function generateInvoice(
   };
 }
 
+function savePdfToFile(pdf, fileName) {
+  return new Promise((resolve, reject) => {
+    // To determine when the PDF has finished being written successfully
+    // we need to confirm the following 2 conditions:
+    //
+    //   1. The write stream has been closed
+    //   2. PDFDocument.end() was called syncronously without an error being thrown
+
+    let pendingStepCount = 2;
+
+    const stepFinished = () => {
+      if (--pendingStepCount == 0) {
+        resolve();
+      }
+    };
+
+    const writeStream = fs.createWriteStream(fileName);
+    writeStream.on("close", stepFinished);
+    pdf.pipe(writeStream);
+
+    pdf.end();
+
+    stepFinished();
+  });
+}
+
 function generatePDF(invoice, path) {
   let doc = new PDFDocument({ size: "Letter", margin: 50 });
-  doc.pipe(fs.createWriteStream(path));
 
   generateHeader(doc, invoice);
   generateCustomerInfo(doc, invoice);
   generateInvoiceTable(doc, invoice);
   generateFooter(doc, invoice);
-  doc.end();
+  return savePdfToFile(doc, path);
 }
 
 function generateHeader(doc, invoice) {
