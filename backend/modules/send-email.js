@@ -24,13 +24,13 @@ const sgMail = require("@sendgrid/mail");
 function getEmailHandler(api_key) {
   sgMail.setApiKey(api_key);
   return {
-    send: async function sendEmail(
+    send: async function sendEmail({
       recipients,
       subject,
       text,
       html,
-      attachments
-    ) {
+      attachments,
+    }) {
       try {
         await sgMail.send({
           from: "Accounts Beaver Team <coucoulr@oregonstate.edu>", // sender address
