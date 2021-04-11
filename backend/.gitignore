@@ -1,4 +1,8 @@
+# PDF files
 *.pdf
+
+# Environment Files
+*.env
 
 # Logs
 logs

@@ -1,8 +1,12 @@
 const PORT = 3000;
 const express = require("express");
 const Busboy = require("busboy");
+const dotenv = require("dotenv");
 const pdf = require("./modules/generate-pdf");
+const email = require("./modules/send-email");
 
+dotenv.config();
+const emailHandler = email.getEmailHandler(process.env.API_KEY);
 const app = express();
 app.use(express.json());
 
@@ -20,6 +24,7 @@ app.post("/generate-pdf", (req, res) => {
     console.log(body);
     const invoice = pdf.generateInvoiceFromRequestObject(body);
     pdf.generatePDF(invoice, "invoice.pdf");
+    // emailHandler.send(recipients, subject, text, html, attachments);
     res.send({ endpoint: "/generate-pdf POST", body });
   });
   req.pipe(busboy);
