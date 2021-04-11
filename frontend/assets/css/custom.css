@@ -38,3 +38,7 @@ h2 {
   font-weight: 500;
 }
 
+.is-preload{
+  max-width: 600px;
+}
+
