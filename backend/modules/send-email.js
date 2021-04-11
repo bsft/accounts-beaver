@@ -20,7 +20,7 @@
 const sgMail = require("@sendgrid/mail");
 
 // Takes SendGrid API key
-// Returns a function which takes email parameters and sends email.
+// Returns an object with send method which takes email parameters and sends email.
 function getEmailHandler(api_key) {
   sgMail.setApiKey(api_key);
   return {
