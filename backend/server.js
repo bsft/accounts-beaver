@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.post("/generate-pdf", (req, res) => {
   res.send({ endpoint: "/generate-pdf POST", ...req.body });
-  // emailHandler(recipients, subject, text, html, attachments);
+  // emailHandler.send(recipients, subject, text, html, attachments);
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
