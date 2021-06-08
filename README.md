@@ -2,6 +2,8 @@
 
 Accounts Beaver streamlines the invoicing process—with one click, you can send out your invoice by email. Simply enter the relevant information and Accounts Beaver does the rest for you.
 
+Link to live demo: https://accounts-beaver.netlify.app/
+
 ## Setup
 
 Accounts Beaver requires NodeJS and npm to run.
